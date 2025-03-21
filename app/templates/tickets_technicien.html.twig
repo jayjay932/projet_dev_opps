@@ -1,0 +1,68 @@
+{% extends "base_auth.html.twig" %}
+
+{% block body %}
+    {% include "navbar.html.twig" %}
+
+    <div class="container mt-4">
+        <h2 class="mb-4">Gestion des Tickets</h2>
+
+        {% if msg %}
+            <div class="alert alert-success">
+                {{ msg }}
+            </div>
+        {% endif %}
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Titre</th>
+                    <th>Description</th>
+                    <th>Statut</th>
+                    <th>Priorité</th>
+                    <th>Employé</th>
+                    <th>Actions</th>
+                    <th>Commentaires</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for ticket in tickets %}
+                    <tr>
+                        <td>{{ ticket.id }}</td>
+                        <td>{{ ticket.titre }}</td>
+                        <td>{{ ticket.description }}</td>
+                        <td>{{ ticket.statut }}</td>
+                        <td>{{ ticket.priorite }}</td>
+                        <td>{{ ticket.nom_employe }}</td>
+                        <td>
+                            <form action="update_ticket.php" method="post">
+                                <input type="hidden" name="ticket_id" value="{{ ticket.id }}">
+                                
+                                <button type="submit" name="statut" value="En cours" class="btn btn-warning btn-sm">En cours</button>
+                                <button type="submit" name="statut" value="Résolu" class="btn btn-success btn-sm">Résolu</button>
+                                <button type="submit" name="statut" value="Fermé" class="btn btn-danger btn-sm">Fermé</button>
+                            </form>
+                        </td>
+
+
+                        <td>
+                            <!-- Formulaire pour ajouter un commentaire -->
+                            <form action="tickets_technicien.php" method="post">
+                                <input type="hidden" name="ticket_id" value="{{ ticket.id }}">
+                                <textarea name="commentaire" class="form-control" rows="3" placeholder="Ajouter un commentaire"></textarea>
+                                <button type="submit" class="btn btn-primary btn-sm mt-2">Ajouter Commentaire</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="7" class="text-center">Aucun ticket ouvert</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    {% include "footer.html.twig" %}
+{% endblock %}
