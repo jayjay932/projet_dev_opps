@@ -24,7 +24,6 @@
                         <th>Priorité</th>
                         <th>Employé</th>
                         <th>Technicien Assigné</th>
-                        <th>Assignation</th>
                         <th>Commentaires</th>
                     </tr>
                 </thead>
@@ -57,29 +56,13 @@
                                 <span class="badge bg-info text-dark">{{ ticket.technicien_assigne }}</span>
                             </td>
                             <td>
-                                <!-- Formulaire d'assignation du technicien -->
-                                <form action="" method="POST" class="d-inline">
-                                    <input type="hidden" name="ticket_id" value="{{ ticket.id }}">
-
-                                    <div class="d-flex flex-column">
-                                        <select name="technicien_id" class="form-select form-select-sm mb-2" required>
-                                            <option value="">Choisir un technicien</option>
-                                            {% for technicien in techniciens %}
-                                                <option value="{{ technicien.id }}" {% if ticket.technicien_assigne == technicien.email %}selected{% endif %}>{{ technicien.email }}</option>
-                                            {% endfor %}
-                                        </select>
-                                        <button type="submit" class="btn btn-primary btn-sm mt-2 w-100">Attribuer</button>
-                                    </div>
-                                </form>
-                            </td>
-                            <td>
                                 <button class="btn btn-outline-primary btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#commentaires-{{ ticket.id }}">
                                     Voir les commentaires
                                 </button>
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="9">
+                            <td colspan="8">
                                 <div class="collapse" id="commentaires-{{ ticket.id }}">
                                     <div class="card card-body bg-light border-0">
                                         <strong>Commentaires :</strong>
@@ -99,7 +82,7 @@
                         </tr>
                     {% else %}
                         <tr>
-                            <td colspan="9" class="text-center text-muted">Aucun ticket ouvert</td>
+                            <td colspan="8" class="text-center text-muted">Aucun ticket ouvert</td>
                         </tr>
                     {% endfor %}
                 </tbody>

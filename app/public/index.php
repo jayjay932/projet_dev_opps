@@ -35,7 +35,7 @@ if (isset($_POST['send'])) {
                 header('Location: tickets_technicien.php');
                 exit();
             } elseif ($user['role'] == 'Employé') {
-                header('Location: create_ticket.php');
+                header('Location: dashboard_employe.php');
                 exit();
             } else {
            

@@ -54,10 +54,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
+
+// Récupération des commentaires pour chaque ticket
+$commentaires = [];
+$sqlCommentaire = "SELECT * FROM commentaires WHERE id_ticket = :ticket_id";
+$stmtCommentaire = $pdo->prepare($sqlCommentaire);
+
+foreach ($tickets as $ticket) {
+    $stmtCommentaire->execute([
+        ':ticket_id' => $ticket['id']
+    ]);
+    $commentaires[$ticket['id']] = $stmtCommentaire->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
 // Affichage du template Twig avec les tickets, techniciens et le message
 echo $page->render('assign_technician_to_ticket.html.twig', [
     'tickets' => $tickets,
     'techniciens' => $techniciens,
+    'commentaires' => $commentaires,
     'msg' => $msg
 ]);
 
