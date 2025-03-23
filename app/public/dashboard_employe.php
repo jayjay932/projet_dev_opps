@@ -50,10 +50,36 @@ $sqlTechniciens = "SELECT id, nom, email FROM users WHERE role = 'Technicien'";
 $stmtTechniciens = $pdo->query($sqlTechniciens);
 $techniciens = $stmtTechniciens->fetchAll(PDO::FETCH_ASSOC);
 
+<<<<<<< HEAD
 // Affichage du template Twig avec les tickets, techniciens et commentaires
+=======
+<<<<<<< HEAD
+// Affichage du template Twig avec les tickets, techniciens et commentaires
+=======
+// Récupération des notifications non lues
+$sqlNotifications = "SELECT * FROM notifications WHERE id_users = ? AND vu = 0 ORDER BY date_creation DESC";
+$stmtNotifications = $pdo->prepare($sqlNotifications);
+$stmtNotifications->execute([$employe_id]);
+$notifications = $stmtNotifications->fetchAll(PDO::FETCH_ASSOC);
+
+// Affichage du template Twig avec les tickets, techniciens, commentaires et notifications
+>>>>>>> 18d1d6f (Ajout de ma partie)
+>>>>>>> b29a987 (Premier commit)
 echo $page->render('dashboard_employe.html.twig', [
     'tickets' => $tickets,
     'techniciens' => $techniciens,
     'commentaires' => $commentaires,
+<<<<<<< HEAD
     'msg' => $msg
 ]);
+=======
+<<<<<<< HEAD
+    'msg' => $msg
+]);
+=======
+    'notifications' => $notifications,
+    'msg' => $msg
+]);
+?>
+>>>>>>> 18d1d6f (Ajout de ma partie)
+>>>>>>> b29a987 (Premier commit)

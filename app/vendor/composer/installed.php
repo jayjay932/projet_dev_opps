@@ -1,9 +1,21 @@
 <?php return array(
     'root' => array(
         'name' => '__root__',
+<<<<<<< HEAD
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
         'reference' => '4a3a2a0f677373fed7322358a5117290eb613c47',
+=======
+<<<<<<< HEAD
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '4a3a2a0f677373fed7322358a5117290eb613c47',
+=======
+        'pretty_version' => '1.0.0+no-version-set',
+        'version' => '1.0.0.0',
+        'reference' => null,
+>>>>>>> 18d1d6f (Ajout de ma partie)
+>>>>>>> b29a987 (Premier commit)
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +23,21 @@
     ),
     'versions' => array(
         '__root__' => array(
+<<<<<<< HEAD
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
             'reference' => '4a3a2a0f677373fed7322358a5117290eb613c47',
+=======
+<<<<<<< HEAD
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '4a3a2a0f677373fed7322358a5117290eb613c47',
+=======
+            'pretty_version' => '1.0.0+no-version-set',
+            'version' => '1.0.0.0',
+            'reference' => null,
+>>>>>>> 18d1d6f (Ajout de ma partie)
+>>>>>>> b29a987 (Premier commit)
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

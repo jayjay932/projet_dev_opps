@@ -1,0 +1,26 @@
+<form method="POST" action="dashboard_admin.php">
+    <h2>Attribuer un technicien à un ticket</h2>
+    <div>
+        <label for="ticket_id">Sélectionner un ticket :</label>
+        <select name="ticket_id" id="ticket_id" required>
+            <option value="">--Sélectionner un ticket--</option>
+            {% for ticket in tickets %}
+                <option value="{{ ticket.id }}">{{ ticket.titre }} ({{ ticket.statut }})</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <label for="technicien_id">Sélectionner un technicien :</label>
+        <select name="technicien_id" id="technicien_id" required>
+            <option value="">--Sélectionner un technicien--</option>
+            {% for technicien in techniciens %}
+                <option value="{{ technicien.id }}">{{ technicien.nom }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit" name="assign_technician">Attribuer le technicien</button>
+</form>
+
+{% if msg %}
+    <p>{{ msg }}</p>
+{% endif %}

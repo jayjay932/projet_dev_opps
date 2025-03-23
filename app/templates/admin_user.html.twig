@@ -58,33 +58,15 @@
                             </td>
                             <td>
                                 <!-- Formulaire d'assignation du technicien -->
-<<<<<<< HEAD
-                                <form action="" method="POST" class="d-inline">
-                                    <input type="hidden" name="ticket_id" value="{{ ticket.id }}">
-=======
-<<<<<<< HEAD
-                                <form action="" method="POST" class="d-inline">
-                                    <input type="hidden" name="ticket_id" value="{{ ticket.id }}">
-=======
                                 <form action="dashboard_admin.php" method="POST" class="d-inline">
                                     <input type="hidden" name="ticket_id" value="{{ ticket.id }}">
                                     <input type="hidden" name="assign_technician" value="1">
->>>>>>> 18d1d6f (Ajout de ma partie)
->>>>>>> b29a987 (Premier commit)
 
                                     <div class="d-flex flex-column">
                                         <select name="technicien_id" class="form-select form-select-sm mb-2" required>
                                             <option value="">Choisir un technicien</option>
                                             {% for technicien in techniciens %}
-<<<<<<< HEAD
-                                                <option value="{{ technicien.id }}" {% if ticket.technicien_assigne == technicien.email %}selected{% endif %}>{{ technicien.email }}</option>
-=======
-<<<<<<< HEAD
-                                                <option value="{{ technicien.id }}" {% if ticket.technicien_assigne == technicien.email %}selected{% endif %}>{{ technicien.email }}</option>
-=======
                                                 <option value="{{ technicien.id }}" {% if ticket.technicien_assigne == technicien.nom %}selected{% endif %}>{{ technicien.nom }}</option>
->>>>>>> 18d1d6f (Ajout de ma partie)
->>>>>>> b29a987 (Premier commit)
                                             {% endfor %}
                                         </select>
                                         <button type="submit" class="btn btn-primary btn-sm mt-2 w-100">Attribuer</button>
@@ -124,14 +106,6 @@
                 </tbody>
             </table>
         </div>
-<<<<<<< HEAD
-    </div>
-
-=======
-<<<<<<< HEAD
-    </div>
-
-=======
 
         <h2 class="mb-4 text-primary fw-bold mt-5">👥 Gestion des Utilisateurs</h2>
 
@@ -268,31 +242,28 @@
         </div>
     </div>
 
-<form method="POST" action="dashboard_admin.php">
-    <h2>Attribuer un technicien à un ticket</h2>
-    <div>
-        <label for="ticket_id">Sélectionner un ticket :</label>
-        <select name="ticket_id" id="ticket_id" required>
-            <option value="">--Sélectionner un ticket--</option>
-            {% for ticket in tickets %}
-                <option value="{{ ticket.id }}">{{ ticket.titre }} ({{ ticket.statut }})</option>
-            {% endfor %}
-        </select>
-    </div>
-    <div>
-        <label for="technicien_id">Sélectionner un technicien :</label>
-        <select name="technicien_id" id="technicien_id" required>
-            <option value="">--Sélectionner un technicien--</option>
-            {% for technicien in techniciens %}
-                <option value="{{ technicien.id }}">{{ technicien.nom }}</option>
-            {% endfor %}
-        </select>
-    </div>
-    <button type="submit" name="assign_technician">Attribuer le technicien</button>
-</form>
+    <form method="POST" action="dashboard_admin.php">
+        <h2>Attribuer un technicien à un ticket</h2>
+        <div>
+            <label for="ticket_id">Sélectionner un ticket :</label>
+            <select name="ticket_id" id="ticket_id" required>
+                <option value="">--Sélectionner un ticket--</option>
+                {% for ticket in tickets %}
+                    <option value="{{ ticket.id }}">{{ ticket.titre }} ({{ ticket.statut }})</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label for="technicien_id">Sélectionner un technicien :</label>
+            <select name="technicien_id" id="technicien_id" required>
+                <option value="">--Sélectionner un technicien--</option>
+                {% for technicien in techniciens %}
+                    <option value="{{ technicien.id }}">{{ technicien.nom }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" name="assign_technician">Attribuer le technicien</button>
+    </form>
 
-
->>>>>>> 18d1d6f (Ajout de ma partie)
->>>>>>> b29a987 (Premier commit)
     {% include "footer.html.twig" %}
 {% endblock %}
